@@ -11,7 +11,7 @@ var require;
 /* eslint-disable no-unused-vars */
 var define;
 
-(function (global) {
+(function(global) {
 
     // 避免重复加载而导致已定义模块丢失
     if (require) {
@@ -26,11 +26,11 @@ var define;
     var resMap = {};
     var pkgMap = {};
 
-    var createScripts = function(queues, onerror){
+    var createScripts = function(queues, onerror) {
 
         var docFrag = document.createDocumentFragment();
 
-        for(var i = 0, len = queues.length; i < len; i++){
+        for (var i = 0, len = queues.length; i < len; i++) {
             var id = queues[i].id;
             var url = queues[i].url;
 
@@ -42,25 +42,24 @@ var define;
 
             var script = document.createElement('script');
             if (onerror) {
-                (function(script, id){
-                    var tid = setTimeout(function(){
+                (function(script, id) {
+                    var tid = setTimeout(function() {
                         onerror(id);
                     }, require.timeout);
 
-                    script.onerror = function () {
+                    script.onerror = function() {
                         clearTimeout(tid);
                         onerror(id);
                     };
 
-                    var onload = function () {
+                    var onload = function() {
                         clearTimeout(tid);
                     };
 
                     if ('onload' in script) {
                         script.onload = onload;
-                    }
-                    else {
-                        script.onreadystatechange = function () {
+                    } else {
+                        script.onreadystatechange = function() {
                             if (this.readyState === 'loaded' || this.readyState === 'complete') {
                                 onload();
                             }
@@ -77,9 +76,9 @@ var define;
         head.appendChild(docFrag);
     };
 
-    var loadScripts = function(ids, callback, onerror){
+    var loadScripts = function(ids, callback, onerror) {
         var queues = [];
-        for(var i = 0, len = ids.length; i < len; i++){
+        for (var i = 0, len = ids.length; i < len; i++) {
             var id = ids[i];
             var queue = loadingMap[id] || (loadingMap[id] = []);
             queue.push(callback);
@@ -93,8 +92,7 @@ var define;
 
             if (pkg) {
                 url = pkgMap[pkg].url || pkgMap[pkg].uri;
-            }
-            else {
+            } else {
                 url = res.url || res.uri || id;
             }
 
@@ -107,7 +105,7 @@ var define;
         createScripts(queues, onerror);
     };
 
-    define = function (id, factory) {
+    define = function(id, factory) {
         id = id.replace(/\.js$/i, '');
         factoryMap[id] = factory;
 
@@ -120,7 +118,7 @@ var define;
         }
     };
 
-    require = function (id) {
+    require = function(id) {
 
         // compatible with require([dep, dep2...]) syntax.
         if (id && id.splice) {
@@ -158,7 +156,7 @@ var define;
         return mod.exports;
     };
 
-    require.async = function (names, onload, onerror) {
+    require.async = function(names, onload, onerror) {
         if (typeof names === 'string') {
             names = [names];
         }
@@ -216,14 +214,14 @@ var define;
         loadScripts(needLoad, updateNeed, onerror);
         updateNeed();
     };
-    
+
     require.ensure = function(names, callback) {
-      require.async(names, function() {
-        callback && callback.call(this, require);
-      });
+        require.async(names, function() {
+            callback && callback.call(this, require);
+        });
     };
 
-    require.resourceMap = function (obj) {
+    require.resourceMap = function(obj) {
         var k;
         var col;
 
@@ -243,7 +241,7 @@ var define;
         }
     };
 
-    require.loadJs = function (url) {
+    require.loadJs = function(url) {
         if (url in scriptsMap) {
             return;
         }
@@ -256,20 +254,18 @@ var define;
         head.appendChild(script);
     };
 
-    require.loadCss = function (cfg) {
+    require.loadCss = function(cfg) {
         if (cfg.content) {
             var sty = document.createElement('style');
             sty.type = 'text/css';
 
             if (sty.styleSheet) { // IE
                 sty.styleSheet.cssText = cfg.content;
-            }
-            else {
+            } else {
                 sty.innerHTML = cfg.content;
             }
             head.appendChild(sty);
-        }
-        else if (cfg.url) {
+        } else if (cfg.url) {
             var link = document.createElement('link');
             link.href = cfg.url;
             link.rel = 'stylesheet';
@@ -278,15 +274,13 @@ var define;
         }
     };
 
-
-    require.alias = function (id) {
+    require.alias = function(id) {
         return id.replace(/\.js$/i, '');
     };
 
     require.timeout = 5000;
 
 })(this);
-
 ;/*!public/lib/base/jquery/jquery.js*/
 /*!
  * jQuery JavaScript Library v3.2.1
@@ -10541,3 +10535,4 @@ if ( !noGlobal ) {
 
 return jQuery;
 } );
+//# sourceMappingURL=/public/static/js/common_aio.js.map

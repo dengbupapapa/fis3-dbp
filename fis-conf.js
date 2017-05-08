@@ -13,7 +13,7 @@ fis.set('project.ignore', [
 fis.match('*', {
     deploy: [
         fis.plugin('skip-packed', {
-            ignore: ['/public/lib/**']
+            // ignore: ['/public/lib/**']
         }), fis.plugin('local-deliver', {
             to: 'output'
         })
@@ -29,6 +29,7 @@ fis.match('*.less', {
 
 fis.match('::package', {
     packager: fis.plugin('deps-pack', {
+        useSourceMap: true,
         '/public/static/js/common_aio.js': [
             '/public/lib/base/mod/mod.js',
             '/public/lib/base/jquery/jquery.js',
@@ -45,6 +46,10 @@ fis.match('::package', {
             js: function(file) {
                 return '/public/static/js/' + file.filename.split('.')[0] + "_aio.js";
             },
+            // css: function(file) {
+            //     console.log(file);
+            //     return '/public/static/css/' + file.filename.split('.')[0] + "_aio.css";
+            // },
             // sourceMap: false,
             // useTrack: false
         },
@@ -59,20 +64,31 @@ fis.match('::package', {
 
 fis.hook('commonjs', {
     extList: ['.js'],
-    baseUrl: '/'
-});
-
-fis.match('/{node_modules,public}/**.js', {
-    isMod: true,
-    // useSameNameRequire: true
-});
-
-fis.match('/public/lib/base/**/*.js', {
-    isMod: false,
-    // useSameNameRequire: false
+    baseUrl: '/',
+    packages: [{
+        name: 'jsModule',
+        location: '/public/static/common/js',
+    }, {
+        name: 'cssModule',
+        location: '/public/static/common/css',
+    }]
 });
 
 fis.unhook('components');
 fis.hook('node_modules', {
-    shimProcess: true
+    shimProcess: true,
+    mergeLevel: 3
+});
+
+fis.match('/{node_modules,public}/**.js', {
+    isMod: true,
+});
+
+fis.match('/public/lib/base/**/*.js', {
+    isMod: false,
+});
+
+fis.match('/use/**/*.{js,html}', {
+    // isMod: true,
+    useSameNameRequire: true
 });
