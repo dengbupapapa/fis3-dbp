@@ -1,21 +1,25 @@
 {
-  "name": "demo-my",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "supervisor server",
-    "pack": "fis3 release"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "express": "^4.15.2"
-  },
-  "dependencies": {
-    "ejs": "^2.5.6",
-    "fis3-packager-deps-pack": "^0.1.2",
-    "jquery": "^3.2.1",
-    "modjs": "^0.4.8"
-  }
+    "name": "demo-my",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "supervisor server",
+        "pack": "fis3 release",
+        "pack-w": "fis3 release -w"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "express": "^4.15.2"
+    },
+    "dependencies": {
+        "ejs": "^2.5.6",
+        "fis-parser-nunjucks2html": "0.0.1",
+        "fis3-packager-deps-pack": "^0.1.2",
+        "glob": "^7.1.1",
+        "jquery": "^3.2.1",
+        "modjs": "^0.4.8",
+        "nunjucks": "^3.0.0"
+    }
 }

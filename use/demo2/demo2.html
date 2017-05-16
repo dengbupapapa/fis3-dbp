@@ -1,0 +1,12 @@
+{% extendsSameName 'use/base/base.html' %}
+
+{% block content %}
+
+    <a href="/">index</a>
+    {% widget
+        dirname='public/widget/nunjucks/demo1/demo1.html',
+        a='真的是demo2吧吧啊',
+        b=3
+    %}
+
+{% endblock %}

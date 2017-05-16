@@ -1,12 +1,14 @@
 var a = require('jsModule/module1/module1');
-console.log(a)
+// console.log(a)
 a('holle module1');
-console.log('holle fis3');
+// console.log('holle fis3');
 
 require('jsModule/exxxo.js');
 
 // console.log(require('jquery'));
-console.log($);
+// console.log($);
 $('div').after('<span>1231231231232</span>');
 
-// require('express')
+$.post('/post', function(req) {
+    console.log(req);
+})

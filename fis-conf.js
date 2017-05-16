@@ -2,6 +2,7 @@ fis.set('project.ignore', [
     'node_modules/**',
     'output/**',
     '.git/**',
+    'config/**',
     'fis-conf.js',
     'package.json',
     '.jshintrc',
@@ -35,7 +36,7 @@ fis.match('::package', {
             '/public/lib/base/jquery/jquery.js',
         ],
         '/public/static/css/common_aio.css': [
-            '/public/static/common/less/*.{css,less}'
+            '/public/static/less/*.{css,less}'
         ]
     })
 });
@@ -43,8 +44,9 @@ fis.match('::package', {
 fis.match('::package', {
     postpackager: fis.plugin('loader', {
         allInOne: {
-            js: function(file) {
-                return '/public/static/js/' + file.filename.split('.')[0] + "_aio.js";
+            js: function(file, a, b, c) {
+                // console.log(file);
+                return file.subpathNoExt + ".js";
             },
             // css: function(file) {
             //     console.log(file);
@@ -67,10 +69,10 @@ fis.hook('commonjs', {
     baseUrl: '/',
     packages: [{
         name: 'jsModule',
-        location: '/public/static/common/js',
+        location: '/public/static/js',
     }, {
         name: 'cssModule',
-        location: '/public/static/common/css',
+        location: '/public/static/css',
     }]
 });
 
@@ -80,7 +82,7 @@ fis.hook('node_modules', {
     mergeLevel: 3
 });
 
-fis.match('/{node_modules,public}/**.js', {
+fis.match('/{node_modules,public,use}/**.js', {
     isMod: true,
 });
 
@@ -89,6 +91,11 @@ fis.match('/public/lib/base/**/*.js', {
 });
 
 fis.match('/use/**/*.{js,html}', {
-    // isMod: true,
+    // umd2commonjs: true,
+    useSameNameRequire: true
+});
+
+fis.match('/public/widget/**/*.{js,html}', {
+    // umd2commonjs: true,
     useSameNameRequire: true
 });
