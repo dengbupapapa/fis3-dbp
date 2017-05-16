@@ -1,3 +1,3 @@
-module.exports = function(a) {
+export default (a) => {
     console.log(a);
 }

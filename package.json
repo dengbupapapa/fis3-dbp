@@ -1,25 +1,33 @@
 {
-    "name": "demo-my",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "supervisor server",
-        "pack": "fis3 release",
-        "pack-w": "fis3 release -w"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "express": "^4.15.2"
-    },
-    "dependencies": {
-        "ejs": "^2.5.6",
-        "fis-parser-nunjucks2html": "0.0.1",
-        "fis3-packager-deps-pack": "^0.1.2",
-        "glob": "^7.1.1",
-        "jquery": "^3.2.1",
-        "modjs": "^0.4.8",
-        "nunjucks": "^3.0.0"
-    }
+  "name": "demo-my",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor server",
+    "pack": "fis3 release",
+    "pack-w": "fis3 release -w",
+    "publish": "gulp && fis3 release prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.15.2"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "ejs": "^2.5.6",
+    "fis-parser-babel-5.x": "^1.4.0",
+    "fis-parser-babel-6.x": "^6.24.1",
+    "fis-parser-babeljs": "^1.0.0",
+    "fis-parser-nunjucks2html": "0.0.1",
+    "fis-spriter-csssprites": "^0.3.11",
+    "fis3-packager-deps-pack": "^0.1.2",
+    "fis3-preprocessor-autoprefixer": "^0.1.1",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "jquery": "^3.2.1",
+    "modjs": "^0.4.8",
+    "nunjucks": "^3.0.0"
+  }
 }

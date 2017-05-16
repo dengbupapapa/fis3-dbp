@@ -1,0 +1,162 @@
+{
+    "res": {
+        "public/lib/base/jquery/jquery.js": {
+            "uri": "/public/lib/base/jquery/jquery.js",
+            "type": "js",
+            "pkg": "p0"
+        },
+        "public/lib/base/mod/mod.js": {
+            "uri": "/public/lib/base/mod/mod.js",
+            "type": "js",
+            "pkg": "p0"
+        },
+        "public/static/js/exxxo.js": {
+            "uri": "/public/static/js/exxxo.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "public/static/js/exxxo"
+            },
+            "aioPkg": "use/index/index.js"
+        },
+        "public/static/js/module1/module1.js": {
+            "uri": "/public/static/js/module1/module1.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "public/static/js/module1/module1"
+            },
+            "aioPkg": "use/index/index.js"
+        },
+        "public/static/less/base.css": {
+            "uri": "/public/static/less/base.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "public/static/less/button.less": {
+            "uri": "/public/static/less/button.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "public/static/less/color.less": {
+            "uri": "/public/static/less/color.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "public/static/less/demo.less": {
+            "uri": "/public/static/less/demo.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "public/static/less/fontSize.less": {
+            "uri": "/public/static/less/fontSize.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "public/widget/nunjucks/demo1/demo1.js": {
+            "uri": "/public/widget/nunjucks/demo1/demo1.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "public/widget/nunjucks/demo1/demo1"
+            },
+            "deps": [
+                "public/widget/nunjucks/demo1/Rely_on.js",
+                "public/static/js/exxxo.js",
+                "public/widget/nunjucks/demo1/demo1.less"
+            ],
+            "aioPkg": "public/widget/nunjucks/demo1/demo1.js"
+        },
+        "public/widget/nunjucks/demo1/demo1.less": {
+            "uri": "/public/widget/nunjucks/demo1/demo1.css",
+            "type": "css"
+        },
+        "public/widget/nunjucks/demo1/Rely_on.js": {
+            "uri": "/public/widget/nunjucks/demo1/Rely_on.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "public/widget/nunjucks/demo1/Rely_on"
+            },
+            "aioPkg": "public/widget/nunjucks/demo1/demo1.js"
+        },
+        "use/demo2/demo2.js": {
+            "uri": "/use/demo2/demo2.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "use/demo2/demo2"
+            },
+            "deps": [
+                "public/static/js/module1/module1.js",
+                "public/static/js/exxxo.js",
+                "use/demo2/demo2.less"
+            ],
+            "aioPkg": "use/demo2/demo2.js"
+        },
+        "use/demo2/demo2.less": {
+            "uri": "/use/demo2/demo2.css",
+            "type": "css"
+        },
+        "use/index/index.js": {
+            "uri": "/use/index/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "use/index/index"
+            },
+            "deps": [
+                "public/static/js/module1/module1.js",
+                "public/static/js/exxxo.js",
+                "use/index/index.less"
+            ],
+            "aioPkg": "use/index/index.js"
+        },
+        "use/index/index.less": {
+            "uri": "/use/index/index.css",
+            "type": "css"
+        }
+    },
+    "pkg": {
+        "p0": {
+            "uri": "/public/static/js/common_aio.js",
+            "type": "js",
+            "has": [
+                "public/lib/base/mod/mod.js",
+                "public/lib/base/jquery/jquery.js"
+            ]
+        },
+        "p1": {
+            "uri": "/public/static/css/common_aio.css",
+            "type": "css",
+            "has": [
+                "public/static/less/base.css",
+                "public/static/less/button.less",
+                "public/static/less/color.less",
+                "public/static/less/demo.less",
+                "public/static/less/fontSize.less"
+            ]
+        },
+        "public/widget/nunjucks/demo1/demo1.js": {
+            "type": "js",
+            "uri": "/public/widget/nunjucks/demo1/demo1.js",
+            "has": [
+                "public/widget/nunjucks/demo1/Rely_on.js",
+                "public/static/js/exxxo.js",
+                "public/widget/nunjucks/demo1/demo1.js"
+            ]
+        },
+        "use/demo2/demo2.js": {
+            "type": "js",
+            "uri": "/use/demo2/demo2.js",
+            "has": [
+                "public/static/js/module1/module1.js",
+                "public/static/js/exxxo.js",
+                "use/demo2/demo2.js"
+            ]
+        },
+        "use/index/index.js": {
+            "type": "js",
+            "uri": "/use/index/index.js",
+            "has": [
+                "public/static/js/module1/module1.js",
+                "public/static/js/exxxo.js",
+                "use/index/index.js"
+            ]
+        }
+    }
+}

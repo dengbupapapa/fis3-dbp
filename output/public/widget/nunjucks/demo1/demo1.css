@@ -1,0 +1,8 @@
+.div {
+  background: #000fff;
+}
+.img {
+  background: url('/public/widget/nunjucks/demo1/2.jpg?__sprite');
+  width: 200px;
+  height: 200px;
+}

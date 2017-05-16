@@ -1,0 +1,13 @@
+{% extendsSameName 'use/base/base.html' %}
+
+{% block content %}
+
+    <a href="/demo2">demo2</a>
+    <img src="/use/index/1.png?__sprite">
+    {% widget
+        dirname='public/widget/nunjucks/demo1/demo1.html',
+        a='真的是等爸爸妈',
+        b=3
+    %}
+
+{% endblock %}

@@ -4,6 +4,7 @@ fis.set('project.ignore', [
     '.git/**',
     'config/**',
     'fis-conf.js',
+    'gulpfile.js',
     'package.json',
     '.jshintrc',
     'controller/**',
@@ -27,6 +28,10 @@ fis.match('*.less', {
     parser: fis.plugin('less'), //启用fis-parser-less插件
     rExt: '.css'
 });
+
+fis.match('*.{jsx,js}', {
+    parser: fis.plugin('babel-5.x')
+})
 
 fis.match('::package', {
     packager: fis.plugin('deps-pack', {
@@ -99,3 +104,33 @@ fis.match('/public/widget/**/*.{js,html}', {
     // umd2commonjs: true,
     useSameNameRequire: true
 });
+
+fis.media('prod')
+    .match('*.js', {
+        optimizer: fis.plugin('uglify-js', {
+            mangle: {
+                expect: ['require', 'define'] //不想被压的
+            }
+        })
+    })
+    .match('*.{css,less}', {
+        optimizer: fis.plugin('clean-css')
+    })
+    .match('*.{css,less}', {
+        preprocessor: fis.plugin('autoprefixer', {
+            "browsers": ["Android >= 2.1", "iOS >= 4", "ie >= 8", "firefox >= 15"],
+            "cascade": true
+        })
+    })
+    // .match('::package', {
+    //     spriter: fis.plugin('csssprites')
+    // })
+    // .match('*.css', {
+    //     useSprite: true
+    // })
+    .match('*.{png,jpg}', {
+        useHash: true
+    })
+    // .match('*.{tpl,html}', {
+    //     optimizer: fis.plugin('html-compress')
+    // })
