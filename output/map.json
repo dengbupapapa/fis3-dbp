@@ -90,8 +90,7 @@
             "deps": [
                 "public/widget/template/demo123/baidu.tmpl",
                 "public/widget/template/demo123/baidu.less"
-            ],
-            "aioPkg": "use/index/index.js"
+            ]
         },
         "public/widget/template/demo123/baidu.less": {
             "uri": "/public/widget/template/demo123/baidu.css",
@@ -103,8 +102,7 @@
             "type": "js",
             "deps": [
                 "public/widget/template/demo123/baidu.less"
-            ],
-            "aioPkg": "use/index/index.js"
+            ]
         },
         "use/demo2/demo2.js": {
             "uri": "/use/demo2/demo2.js",
@@ -132,13 +130,15 @@
             "uri": "/use/index/index.js",
             "type": "js",
             "extras": {
+                "async": [
+                    "public/widget/template/demo123/baidu.js"
+                ],
                 "moduleId": "use/index/index"
             },
             "deps": [
                 "public/static/js/module1/module1.js",
                 "use/index/background.less",
                 "public/static/js/exxxo.js",
-                "public/widget/template/demo123/baidu.js",
                 "use/index/index.less"
             ],
             "aioPkg": "use/index/index.js"
@@ -194,8 +194,6 @@
             "has": [
                 "public/static/js/module1/module1.js",
                 "public/static/js/exxxo.js",
-                "public/widget/template/demo123/baidu.tmpl",
-                "public/widget/template/demo123/baidu.js",
                 "use/index/index.js"
             ]
         },
@@ -203,8 +201,8 @@
             "type": "js",
             "uri": "/use/index/index.css",
             "has": [
-                "use/index/background.less",
                 "public/widget/template/demo123/baidu.less",
+                "use/index/background.less",
                 "use/index/index.less"
             ]
         }

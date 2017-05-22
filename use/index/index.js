@@ -16,3 +16,9 @@ $.post('/post', function(req) {
 let template = require('baiduTemplate/demo123/baidu');
 
 $('#dengshiwei').html(template);
+
+let x = (y) => {
+    console.log(y);
+}
+
+x(2222222222222225555555555);
