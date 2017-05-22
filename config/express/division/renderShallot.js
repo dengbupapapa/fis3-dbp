@@ -28,6 +28,7 @@ class RenderShallot {
      * @param {String} html use
      * @return {String} use 加入资源
      */
+
     renderChef(html) {
 
         let allCss = '<link rel="stylesheet" type="text/css" href="' + this._css.join('.css"><link rel="stylesheet" type="text/css" href="') + '.css">';

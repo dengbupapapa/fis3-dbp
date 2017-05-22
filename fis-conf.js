@@ -33,12 +33,32 @@ fis.match('*.{jsx,js}', {
     parser: fis.plugin('babel-5.x')
 })
 
+fis.match('(**/)(*).tmpl', {
+    rExt: '.js',
+    release: '$1' + '$2-TMPL',
+    isMod: true,
+    parser: [fis.plugin('bdtmpl-chassis'), {
+        LEFT_DELIMITER: '<%',
+        RIGHT_DELIMITER: '%>'
+    }]
+});
+
+fis.match('*.js', {
+    preprocessor: [
+        fis.plugin('js-require-css'),
+        fis.plugin('js-require-file', {
+            useEmbedWhenSizeLessThan: 10 * 1024 // 小于10k用base64
+        })
+    ]
+});
+
 fis.match('::package', {
     packager: fis.plugin('deps-pack', {
         useSourceMap: true,
         '/public/static/js/common_aio.js': [
             '/public/lib/base/mod/mod.js',
             '/public/lib/base/jquery/jquery.js',
+            '/public/lib/base/baiduTemplate/baiduTemplate.js',
         ],
         '/public/static/css/common_aio.css': [
             '/public/static/less/*.{css,less}'
@@ -49,14 +69,14 @@ fis.match('::package', {
 fis.match('::package', {
     postpackager: fis.plugin('loader', {
         allInOne: {
-            js: function(file, a, b, c) {
+            js: function(file) {
                 // console.log(file);
-                return file.subpathNoExt + ".js";
+                return file.subpathNoExt + '.js';
             },
-            // css: function(file) {
-            //     console.log(file);
-            //     return '/public/static/css/' + file.filename.split('.')[0] + "_aio.css";
-            // },
+            css: function(file) {
+                // console.log(file.subpathNoExt)
+                return file.subpathNoExt + '.css';
+            },
             // sourceMap: false,
             // useTrack: false
         },
@@ -78,6 +98,9 @@ fis.hook('commonjs', {
     }, {
         name: 'cssModule',
         location: '/public/static/css',
+    }, {
+        name: 'widgetModule',
+        location: '/public/widget',
     }]
 });
 
@@ -100,8 +123,14 @@ fis.match('/use/**/*.{js,html}', {
     useSameNameRequire: true
 });
 
-fis.match('/public/widget/**/*.{js,html}', {
+fis.match('/public/widget/nunjucks/**/*.{js,html}', {
     // umd2commonjs: true,
+    useSameNameRequire: true
+});
+
+fis.match('/public/widget/template/**/*.{js,tmpl}', {
+    // umd2commonjs: true,
+    // isJsLike: true,
     useSameNameRequire: true
 });
 

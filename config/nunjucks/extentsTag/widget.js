@@ -88,12 +88,13 @@ class Widget {
         try {
 
             let renderShallo = context.ctx['__renderShallot'];
+            let fileExists = context.ctx['__libCommon'].fileExists;
 
-            if (!renderShallo._script.includes(dirname)) {
+            if (!renderShallo._script.includes(dirname) && fileExists(__dirname, '../../../output', dirname + '.js')) {
                 renderShallo.addScript(dirname);
             }
 
-            if (!renderShallo._css.includes(dirname)) {
+            if (!renderShallo._css.includes(dirname) && fileExists(__dirname, '../../../output', dirname + '.css')) {
                 renderShallo.addCss(dirname);
             }
 

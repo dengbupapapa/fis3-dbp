@@ -63,13 +63,14 @@ class ExtendsSameName {
 
         try {
 
+            let fileExists = context.ctx['__libCommon'].fileExists;
             let renderShallo = context.ctx['__renderShallot'];
 
-            if (!renderShallo._script.includes(useDirname)) {
+            if (!renderShallo._script.includes(useDirname) && fileExists(__dirname, '../../../output', useDirname + '.js')) {
                 renderShallo.addScript(useDirname);
             }
 
-            if (!renderShallo._css.includes(useDirname)) {
+            if (!renderShallo._css.includes(useDirname) && fileExists(__dirname, '../../../output', useDirname + '.css')) {
                 renderShallo.addCss(useDirname);
             }
 

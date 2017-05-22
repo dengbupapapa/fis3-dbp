@@ -1,4 +1,6 @@
+const fs = require('fs');
 const RenderShallot = require('./division/renderShallot.js');
+const libCommon = require('./lib/common.js');
 
 module.exports.init = function(app) {
 
@@ -12,7 +14,8 @@ module.exports.init = function(app) {
 
             res.locals = {
                 __renderShallot: renderShallot,
-                __useDirname: view
+                __useDirname: view,
+                __libCommon: libCommon
             };
 
             render.call(this, view, opts, (err, html) => {

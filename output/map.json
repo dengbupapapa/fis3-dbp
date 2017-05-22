@@ -1,5 +1,10 @@
 {
     "res": {
+        "public/lib/base/baiduTemplate/baiduTemplate.js": {
+            "uri": "/public/lib/base/baiduTemplate/baiduTemplate.js",
+            "type": "js",
+            "pkg": "p0"
+        },
         "public/lib/base/jquery/jquery.js": {
             "uri": "/public/lib/base/jquery/jquery.js",
             "type": "js",
@@ -76,6 +81,31 @@
             },
             "aioPkg": "public/widget/nunjucks/demo1/demo1.js"
         },
+        "public/widget/template/demo123/baidu.js": {
+            "uri": "/public/widget/template/demo123/baidu.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "public/widget/template/demo123/baidu"
+            },
+            "deps": [
+                "public/widget/template/demo123/baidu.tmpl",
+                "public/widget/template/demo123/baidu.less"
+            ],
+            "aioPkg": "use/index/index.js"
+        },
+        "public/widget/template/demo123/baidu.less": {
+            "uri": "/public/widget/template/demo123/baidu.css",
+            "type": "css",
+            "aioPkg": "use/index/index.css"
+        },
+        "public/widget/template/demo123/baidu.tmpl": {
+            "uri": "/public/widget/template/demo123/baidu-TMPL.js",
+            "type": "js",
+            "deps": [
+                "public/widget/template/demo123/baidu.less"
+            ],
+            "aioPkg": "use/index/index.js"
+        },
         "use/demo2/demo2.js": {
             "uri": "/use/demo2/demo2.js",
             "type": "js",
@@ -102,13 +132,15 @@
             "deps": [
                 "public/static/js/module1/module1.js",
                 "public/static/js/exxxo.js",
+                "public/widget/template/demo123/baidu.js",
                 "use/index/index.less"
             ],
             "aioPkg": "use/index/index.js"
         },
         "use/index/index.less": {
             "uri": "/use/index/index.css",
-            "type": "css"
+            "type": "css",
+            "aioPkg": "use/index/index.css"
         }
     },
     "pkg": {
@@ -117,7 +149,8 @@
             "type": "js",
             "has": [
                 "public/lib/base/mod/mod.js",
-                "public/lib/base/jquery/jquery.js"
+                "public/lib/base/jquery/jquery.js",
+                "public/lib/base/baiduTemplate/baiduTemplate.js"
             ]
         },
         "p1": {
@@ -155,7 +188,17 @@
             "has": [
                 "public/static/js/module1/module1.js",
                 "public/static/js/exxxo.js",
+                "public/widget/template/demo123/baidu.tmpl",
+                "public/widget/template/demo123/baidu.js",
                 "use/index/index.js"
+            ]
+        },
+        "use/index/index.css": {
+            "type": "js",
+            "uri": "/use/index/index.css",
+            "has": [
+                "public/widget/template/demo123/baidu.less",
+                "use/index/index.less"
             ]
         }
     }
