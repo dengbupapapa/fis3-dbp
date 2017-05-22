@@ -14,7 +14,7 @@ module.exports.init = (app, opts) => {
     let dirname = __dirname.match(/.*\/(.*)/)[1];
     let reg = new RegExp(dirname + '\/(.*)');
 
-    glob(path.join(__dirname, '@(**|!index.js)/**'), {
+    glob(path.join(__dirname, '@(**|!index.js)/**'), { //添加extentsTag@(**|!index.js)
         nodir: true
     }, function(err, files) {
 
@@ -26,13 +26,24 @@ module.exports.init = (app, opts) => {
         files.forEach((item, i) => {
 
             let urlBase = item.match(reg)[1];
-            let nameBase = urlBase.match(/extentsTag\/(.*)\.js/)[1];;
-            let extensionModule = require('./' + urlBase);
+            let dirChildren = urlBase.match(/(.+?)\//)[1];
+            let Module = require('./' + urlBase);
 
-            if (extensionModule && nameBase) env.addExtension(nameBase + 'Extension', new extensionModule(nunjucks));
+            if (dirChildren == 'lib') {
+
+                new Module(env);
+
+            } else if (dirChildren == 'extentsTag') {
+
+                let nameBase = urlBase.match(/extentsTag\/(.*)\.js/)[1];;
+
+                if (Module && nameBase) env.addExtension(nameBase + 'Extension', new Module(nunjucks));
+
+            }
+            //
 
         });
 
-    })
+    });
 
 }

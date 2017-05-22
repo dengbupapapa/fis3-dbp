@@ -4,7 +4,7 @@ const path = require('path');
 module.exports.init = function(app) {
 
     let dirname = __dirname.match(/.*\/(.*)/)[1];
-    let reg = new RegExp(dirname + '\/(.*)');
+    let reg = new RegExp(dirname + '(\/.*)');
 
     glob(path.join(__dirname, '@(**|!routes.js)/**'), {
         nodir: true
@@ -15,15 +15,22 @@ module.exports.init = function(app) {
             return false
         }
 
-        files.forEach((item, i) => {
+        let logRoutes = files.map((item, i) => {
 
-            let routerMini = require('./' + item.match(reg)[1]);
+            let fileDir = item.match(reg)[1];
+            let routerMini = require('.' + fileDir);
 
             if (typeof routerMini.route === 'function') {
-                app.use(routerMini);
+
+                app.use(routerMini); //fileDir.replace(/\.js$/, ''),
+
+                return fileDir;
+
             }
 
         });
+
+        console.log(logRoutes);
 
     });
 

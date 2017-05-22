@@ -8,7 +8,4 @@ const path = require("path");
  * @param {String} filename 文件名称
  * @return {String} 目标文件绝对路径
  */
-exports.fileExists = (dirname, resolve, filename) => {
-    console.log(path.resolve(dirname, resolve, filename));
-    return fs.existsSync(path.resolve(dirname, resolve, filename))
-};
+exports.fileExists = (dirname, resolve, filename) => fs.existsSync(path.resolve(dirname, resolve, filename));

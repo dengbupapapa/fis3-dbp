@@ -1,8 +1,9 @@
 class RenderShallot {
 
-    constructor() {
+    constructor(versions) {
         this._script = new Array();
         this._css = new Array();
+        this.versions = versions
     }
 
     /**
@@ -31,8 +32,8 @@ class RenderShallot {
 
     renderChef(html) {
 
-        let allCss = '<link rel="stylesheet" type="text/css" href="' + this._css.join('.css"><link rel="stylesheet" type="text/css" href="') + '.css">';
-        let allScript = this._script.reduce((prev, next) => prev + '<script type="text/javascript" src="' + next + '.js"></script><script type="text/javascript">require("' + next + '.js")</script>', '');
+        let allCss = '<link rel="stylesheet" type="text/css" href="' + this._css.join('.css' + this.versions + '"><link rel="stylesheet" type="text/css" href="') + '.css' + this.versions + '">';
+        let allScript = this._script.reduce((prev, next) => prev + '<script type="text/javascript" src="' + next + '.js' + this.versions + '"></script><script type="text/javascript">require("' + next + '.js")</script>', '');
 
         return html.replace(/\<\/body\>/, ($1) => allScript + $1)
             .replace(/\<\/head\>/, ($1) => allCss + $1);

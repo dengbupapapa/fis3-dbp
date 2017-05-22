@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>fis3</title>
-    <link rel="stylesheet" type="text/css" data-loader href="/public/static/css/common_aio.css">
+    <link rel="stylesheet" type="text/css" data-loader href="/public/static/css/common_aio.css{{__versions}}">
     {% block css %}
     {% endblock %}
 
@@ -11,15 +11,15 @@
 <body>
         <div contenteditable="true"></div>
         <div class="div">div:
-            <span>span</span>
+            <span>spans</span>
             <p>p</p>
-            <button>按钮</button>
+            <button>按钮ss</button>
         </div>
     {% block content %}
     {% endblock %}
 
 
-    <script type="text/javascript" data-loader src='/public/static/js/common_aio.js'></script>
+    <script type="text/javascript" data-loader src='/public/static/js/common_aio.js{{__versions}}'></script>
     {% block script %}
     {% endblock %}
 

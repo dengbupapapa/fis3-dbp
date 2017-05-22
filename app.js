@@ -7,6 +7,7 @@ const expressConfig = require('./config/express/index.js');
 const routes = require('./controller/routes/routes.js');
 
 app.use(logger('dev'));
+
 nunjucksConfig.init(app, {
     dir: path.join(__dirname, './output')
 });

@@ -9,7 +9,9 @@ fis.set('project.ignore', [
     '.jshintrc',
     'controller/**',
     'app.js',
-    'server.js'
+    'server.js',
+    'npm-debug.log',
+    'arguments.config.js'
 ]);
 
 fis.match('*', {
