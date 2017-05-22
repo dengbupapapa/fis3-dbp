@@ -76,6 +76,8 @@ define('use/index/index', function(require, exports, module) {
   (0, _jsModuleModule1Module12['default'])('holle module1');
   // console.log('holle fis3');
   
+  '';
+  
   require('public/static/js/exxxo');
   
   $('div').after('<span>1231231231232</span>');

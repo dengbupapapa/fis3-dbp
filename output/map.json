@@ -123,6 +123,11 @@
             "uri": "/use/demo2/demo2.css",
             "type": "css"
         },
+        "use/index/background.less": {
+            "uri": "/use/index/background.css",
+            "type": "css",
+            "aioPkg": "use/index/index.css"
+        },
         "use/index/index.js": {
             "uri": "/use/index/index.js",
             "type": "js",
@@ -131,6 +136,7 @@
             },
             "deps": [
                 "public/static/js/module1/module1.js",
+                "use/index/background.less",
                 "public/static/js/exxxo.js",
                 "public/widget/template/demo123/baidu.js",
                 "use/index/index.less"
@@ -197,6 +203,7 @@
             "type": "js",
             "uri": "/use/index/index.css",
             "has": [
+                "use/index/background.less",
                 "public/widget/template/demo123/baidu.less",
                 "use/index/index.less"
             ]

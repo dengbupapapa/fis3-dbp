@@ -4,6 +4,8 @@ import a from 'jsModule/module1/module1';
 a('holle module1');
 // console.log('holle fis3');
 
+require('./background.less');
+
 require('jsModule/exxxo.js');
 
 $('div').after('<span>1231231231232</span>');
@@ -11,6 +13,6 @@ $('div').after('<span>1231231231232</span>');
 $.post('/post', function(req) {
     console.log(req);
 });
-let template = require('widgetModule/template/demo123/baidu');
+let template = require('baiduTemplate/demo123/baidu');
 
 $('#dengshiwei').html(template);

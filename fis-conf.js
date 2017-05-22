@@ -101,8 +101,11 @@ fis.hook('commonjs', {
         name: 'cssModule',
         location: '/public/static/css',
     }, {
-        name: 'widgetModule',
-        location: '/public/widget',
+        name: 'imgModule',
+        location: '/public/static/img',
+    }, {
+        name: 'baiduTemplate',
+        location: '/public/widget/template',
     }]
 });
 

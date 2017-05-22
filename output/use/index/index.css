@@ -1,3 +1,10 @@
+body {
+  background: #000;
+}
+body div {
+  background: #fff;
+}
+
 .baidu {
   font-size: 14px;
 }
