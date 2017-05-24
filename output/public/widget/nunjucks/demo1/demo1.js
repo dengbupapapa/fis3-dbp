@@ -27,3 +27,4 @@ define('public/widget/nunjucks/demo1/demo1', function(require, exports, module) 
 
 });
 
+//# sourceMappingURL=/public/widget/nunjucks/demo1/demo1.js.map

@@ -4,7 +4,7 @@ const app = express();
 const logger = require('morgan');
 const nunjucksConfig = require('./config/nunjucks/index.js');
 const expressConfig = require('./config/express/index.js');
-const routes = require('./controller/routes/routes.js');
+const routes = require('./routes/routes.js');
 
 app.use(logger('dev'));
 

@@ -11,11 +11,12 @@ require('jsModule/exxxo.js');
 $('div').after('<span>1231231231232</span>');
 
 $.post('/post', function(req) {
-    console.log(req);
+    console.log(require);
 });
-let template = require('baiduTemplate/demo123/baidu');
+let template = require('baiduTemplate/demo123/baidu.js?1');
+$('#dengshiwei').html(template).click(function() {
 
-$('#dengshiwei').html(template);
+});
 
 let x = (y) => {
     console.log(y);

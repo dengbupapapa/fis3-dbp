@@ -11,7 +11,12 @@ fis.set('project.ignore', [
     'app.js',
     'server.js',
     'npm-debug.log',
-    'arguments.config.js'
+    'arguments.config.js',
+    'api/**',
+    'middleware/**',
+    'routes/**',
+    'readme.html',
+    'README.md'
 ]);
 
 fis.match('*', {
@@ -45,6 +50,22 @@ fis.match('(**/)(*).tmpl', {
     }]
 });
 
+// fis.match('/use/nunparse/*.{tmpl}', {
+//     parser: fis.plugin('nunjucks2html', {
+//         autoescape: true,
+//         throwOnUndefined: false,
+//         trimBlocks: true,
+//         lstripBlocks: true,
+//         noCache: true,
+//         // tags 属性，参考: http://mozilla.github.io/nunjucks/api.html#customizing-syntax 
+//         // 额外增加参数: 
+//         // data: { /* nunjucks 渲染需要的数据 */ },
+//         root: '', // 模板所在的文件夹路径，一般不需要填写 
+//         precompile: true, // 是否编译为可运行的脚本？ 
+//     }),
+//     rExt: '.html'
+// });
+
 fis.match('*.js', {
     preprocessor: [
         fis.plugin('js-require-css'),
@@ -72,27 +93,37 @@ fis.match('::package', {
     postpackager: fis.plugin('loader', {
         allInOne: {
             js: function(file) {
-                // console.log(file);
+                console.log(file);
                 return file.subpathNoExt + '.js';
             },
             css: function(file) {
                 // console.log(file.subpathNoExt)
                 return file.subpathNoExt + '.css';
             },
-            // sourceMap: false,
+            sourceMap: true,
+            // includeAsyncs: true,
             // useTrack: false
+            // ignore: '/public/widget/template/**/*.js'
         },
         resourceType: 'mod',
+        useInlineMap: false,
+        resoucemap: 'static/pkg/${filepath}_map.js',
+        include: [
+            'widgets/**.js'
+        ]
+
+        // include: '/public/widget/template/**.js'
         // useSourceMap: false,
         // obtainScript: false,
         // obtainStyle: false,
         // useInlineMap: false,
         // resoucemap: false
-    })
+    }),
+    // moduleId: '$0'
 });
 
 fis.hook('commonjs', {
-    extList: ['.js'],
+    extList: ['.js', 'less'],
     baseUrl: '/',
     packages: [{
         name: 'jsModule',

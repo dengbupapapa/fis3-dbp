@@ -1,15 +1,15 @@
-.baidu {
-  font-size: 14px;
-}
-.baidu span {
-  font-size: 84px;
-}
-
 body {
   background: #000;
 }
 body div {
   background: #fff;
+}
+
+.baidu {
+  font-size: 14px;
+}
+.baidu span {
+  font-size: 84px;
 }
 
 div {
@@ -19,3 +19,4 @@ div span {
   color: #ff0000;
 }
 
+/*# sourceMappingURL=/use/index/index.css.map*/

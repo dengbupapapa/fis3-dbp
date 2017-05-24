@@ -41,17 +41,43 @@ optgroup { font-weight: bold; }
 table { border-spacing: 0; border-collapse: collapse; }
 td, th { padding: 0; }
 ul, li { list-style: none; }
+/*!public/static/less/baseConfig.less*/
+/*
+ * colour
+ */
+/*
+ * font-size
+ */
+
 /*!public/static/less/button.less*/
-.button_blue {
-  background: blue;
+/*
+ * colour
+ */
+/*
+ * font-size
+ */
+button {
+  background: #ff0000;
 }
 
 /*!public/static/less/color.less*/
+/*
+ * colour
+ */
+/*
+ * font-size
+ */
 .color_blue {
-  color: blue;
+  color: #0000ff;
 }
 
 /*!public/static/less/demo.less*/
+/*
+ * colour
+ */
+/*
+ * font-size
+ */
 .div {
   background: red;
 }
@@ -66,6 +92,12 @@ ul, li { list-style: none; }
 }
 
 /*!public/static/less/fontSize.less*/
+/*
+ * colour
+ */
+/*
+ * font-size
+ */
 .font-size12 {
   font-size: 12px;
 }

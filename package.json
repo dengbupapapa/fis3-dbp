@@ -1,37 +1,38 @@
 {
-    "name": "demo-my",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "gulp && npm run server & npm run pack-w",
-        "pack": "fis3 release",
-        "pack-w": "fis3 release -w",
-        "server": "supervisor server.js",
-        "publish": "export NODE_ENV=production && gulp && fis3 release prod && npm run server",
-        "getApi": "cd './controller/api' && node getApi.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "express": "^4.15.2"
-    },
-    "dependencies": {
-        "del": "^2.2.2",
-        "fis-parser-babel-5.x": "^1.4.0",
-        "fis-parser-babel-6.x": "^6.24.1",
-        "fis-parser-babeljs": "^1.0.0",
-        "fis-parser-bdtmpl-chassis": "0.0.4",
-        "fis-spriter-csssprites": "^0.3.11",
-        "fis3-packager-deps-pack": "^0.1.2",
-        "fis3-preprocessor-autoprefixer": "^0.1.1",
-        "glob": "^7.1.1",
-        "gulp": "^3.9.1",
-        "jquery": "^3.2.1",
-        "modjs": "^0.4.8",
-        "morgan": "^1.8.1",
-        "nunjucks": "^3.0.0",
-        "request": "^2.81.0",
-        "swagger-js-codegen": "^1.9.0"
-    }
+  "name": "demo-my",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp && npm run server & npm run pack-w",
+    "pack": "fis3 release",
+    "pack-w": "fis3 release -w",
+    "server": "supervisor server.js",
+    "publish": "export NODE_ENV=production && gulp && fis3 release prod && npm run server",
+    "getApi": "cd './api' && node getApi.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.15.2"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "fis-parser-babel-5.x": "^1.4.0",
+    "fis-parser-babel-6.x": "^6.24.1",
+    "fis-parser-babeljs": "^1.0.0",
+    "fis-parser-bdtmpl-chassis": "0.0.4",
+    "fis-parser-nunjucks2html": "0.0.1",
+    "fis-spriter-csssprites": "^0.3.11",
+    "fis3-packager-deps-pack": "^0.1.2",
+    "fis3-preprocessor-autoprefixer": "^0.1.1",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "jquery": "^3.2.1",
+    "modjs": "^0.4.8",
+    "morgan": "^1.8.1",
+    "nunjucks": "^3.0.0",
+    "request": "^2.81.0",
+    "swagger-js-codegen": "^1.9.0"
+  }
 }

@@ -20,10 +20,9 @@
 		├── config -- 各种配置
 		│   ├── express -- express的各种配置和拓展
 		│   └── nunjucks -- nunjucks的各种配置和拓展
-		├── controller -- 控制器目录
-		│   ├── api -- 通过swagger生成代理后端api
-		│   ├── middleware -- express中间件集中营
-		│   └── routes -- 接收各种来自客户端的请求
+		├── api -- 通过swagger生成代理后端api
+		├── middleware -- express中间件集中营
+		├── routes -- 接收各种来自客户端的请求
 		│        ├── use -- 渲染页面
 		│        └── async -- 接收异步请求
 		├── node_modules
